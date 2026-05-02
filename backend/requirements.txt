@@ -7,3 +7,4 @@ httpx
 beautifulsoup4
 googlesearch-python
 duckduckgo-search
+google-generativeai

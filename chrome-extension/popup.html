@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TruthLens</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="truthlens-popup-body">
+    <div class="truthlens-popup-shell">
+      <header class="truthlens-popup-header">
+        <div class="truthlens-logo-row">
+          <div class="truthlens-logo">TL</div>
+          <div>
+            <h1>TruthLens</h1>
+            <p>Spot hallucinations instantly</p>
+          </div>
+        </div>
+      </header>
+
+      <main class="truthlens-popup-main">
+        <label class="truthlens-meta-label" for="truthlens-input">Paste text to fact-check...</label>
+        <textarea id="truthlens-input" class="truthlens-popup-textarea" placeholder="Paste text to fact-check..."></textarea>
+        <button id="truthlens-analyze" class="truthlens-primary-button" type="button">Analyze</button>
+
+        <section id="truthlens-status" class="truthlens-popup-status"></section>
+        <section id="truthlens-results" class="truthlens-popup-results"></section>
+      </main>
+
+      <footer class="truthlens-popup-footer">
+        <a href="http://localhost:5173/" target="_blank" rel="noreferrer">Visit TruthLens</a>
+      </footer>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

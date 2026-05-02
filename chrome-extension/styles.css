@@ -1,0 +1,300 @@
+.truthlens-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 380px;
+  height: 100vh;
+  background: #0f172a;
+  color: #ffffff;
+  z-index: 999999;
+  overflow-y: auto;
+  box-shadow: -18px 0 42px rgba(15, 23, 42, 0.45);
+  border-left: 1px solid rgba(148, 163, 184, 0.18);
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.truthlens-panel-visible {
+  transform: translateX(0);
+}
+
+.truthlens-panel-header,
+.truthlens-popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.truthlens-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.truthlens-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7f77dd, #4f46e5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.truthlens-panel-header h2,
+.truthlens-popup-header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.truthlens-panel-header p,
+.truthlens-popup-header p,
+.truthlens-score-subtitle,
+.truthlens-meta-label,
+.truthlens-confidence,
+.truthlens-popup-footer a,
+.truthlens-popup-notice,
+.truthlens-source-text,
+.truthlens-source-link,
+.truthlens-explanation-box p,
+.truthlens-correct-box p,
+.truthlens-claim-text,
+.truthlens-stats-row span {
+  color: #cbd5e1;
+}
+
+.truthlens-panel-body,
+.truthlens-popup-main {
+  padding: 18px;
+}
+
+.truthlens-close-button {
+  border: none;
+  background: transparent;
+  color: #e2e8f0;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.truthlens-loading,
+.truthlens-loading-inline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #f8fafc;
+}
+
+.truthlens-spinner {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 3px solid rgba(148, 163, 184, 0.28);
+  border-top-color: #60a5fa;
+  animation: truthlens-spin 0.8s linear infinite;
+}
+
+.truthlens-spinner.small {
+  width: 18px;
+  height: 18px;
+  border-width: 2px;
+}
+
+.truthlens-score-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.truthlens-score-card.popup {
+  margin-top: 12px;
+}
+
+.truthlens-score-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  background: radial-gradient(circle at top, #818cf8, #4338ca);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.truthlens-stats-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+  font-size: 12px;
+}
+
+.truthlens-claims-list {
+  display: grid;
+  gap: 12px;
+}
+
+.truthlens-claim-card {
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.truthlens-claim-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.truthlens-badge {
+  display: inline-flex;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.truthlens-badge-true {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+.truthlens-badge-false {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.truthlens-badge-uncertain {
+  background: #ca8a04;
+  color: #ffffff;
+}
+
+.truthlens-badge-opinion {
+  background: #9333ea;
+  color: #ffffff;
+}
+
+.truthlens-badge-unverifiable {
+  background: #6b7280;
+  color: #ffffff;
+}
+
+.truthlens-meta-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.truthlens-explanation-box,
+.truthlens-correct-box,
+.truthlens-error-box {
+  background: rgba(2, 6, 23, 0.45);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-top: 10px;
+}
+
+.truthlens-correct-box {
+  border-color: rgba(251, 146, 60, 0.4);
+  background: rgba(251, 146, 60, 0.08);
+}
+
+.truthlens-source-link {
+  color: #60a5fa;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.truthlens-source-link:hover {
+  text-decoration: underline;
+}
+
+.truthlens-popup-body {
+  margin: 0;
+  min-width: 400px;
+  min-height: 500px;
+  background: #0f172a;
+  color: #fff;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.truthlens-popup-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+}
+
+.truthlens-popup-textarea {
+  width: 100%;
+  min-height: 120px;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(2, 6, 23, 0.45);
+  color: #fff;
+  padding: 12px 14px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.truthlens-primary-button {
+  width: 100%;
+  margin-top: 12px;
+  border: none;
+  border-radius: 14px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #7f77dd, #4f46e5);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.truthlens-primary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.truthlens-popup-status {
+  margin-top: 12px;
+}
+
+.truthlens-popup-results {
+  margin-top: 12px;
+}
+
+.truthlens-popup-footer {
+  margin-top: auto;
+  padding: 14px 18px 18px;
+  border-top: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.truthlens-popup-footer a {
+  text-decoration: none;
+}
+
+@keyframes truthlens-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

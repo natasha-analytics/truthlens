@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+sqlalchemy
+requests
+python-dotenv
+httpx
+beautifulsoup4
+googlesearch-python
+duckduckgo-search

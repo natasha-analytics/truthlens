@@ -1,0 +1,290 @@
+{
+  "accuracy": 25.0,
+  "precision": 100.0,
+  "recall": 100.0,
+  "f1_score": 100.0,
+  "total_tested": 40,
+  "correct": 10,
+  "results": [
+    {
+      "claim": "The Earth orbits the Sun",
+      "expected": "TRUE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "Water boils at 100 degrees Celsius at sea level",
+      "expected": "TRUE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "The human body has 206 bones",
+      "expected": "TRUE",
+      "actual": "TRUE",
+      "confidence": 98,
+      "correct": true
+    },
+    {
+      "claim": "Neil Armstrong landed on the moon in 1969",
+      "expected": "TRUE",
+      "actual": "TRUE",
+      "confidence": 99,
+      "correct": true
+    },
+    {
+      "claim": "India gained independence in 1947",
+      "expected": "TRUE",
+      "actual": "TRUE",
+      "confidence": 99,
+      "correct": true
+    },
+    {
+      "claim": "The capital of France is Paris",
+      "expected": "TRUE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "Shakespeare wrote Romeo and Juliet",
+      "expected": "TRUE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "The Pacific Ocean is the largest ocean",
+      "expected": "TRUE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "Python was created by Guido van Rossum",
+      "expected": "TRUE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "The Taj Mahal is located in Agra India",
+      "expected": "TRUE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "Mount Everest is the tallest mountain on Earth",
+      "expected": "TRUE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "The human heart has four chambers",
+      "expected": "TRUE",
+      "actual": "TRUE",
+      "confidence": 99,
+      "correct": true
+    },
+    {
+      "claim": "World War 2 ended in 1945",
+      "expected": "TRUE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "Google was founded by Larry Page and Sergey Brin",
+      "expected": "TRUE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "The chemical symbol for Gold is Au",
+      "expected": "TRUE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "ISRO was founded in 1969",
+      "expected": "TRUE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "The capital of Japan is Tokyo",
+      "expected": "TRUE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "The Eiffel Tower is located in Paris France",
+      "expected": "TRUE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "The speed of light is approximately 300000 km per second",
+      "expected": "TRUE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "Mahatma Gandhi was born in 1869",
+      "expected": "TRUE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "The capital of Australia is Sydney",
+      "expected": "FALSE",
+      "actual": "FALSE",
+      "confidence": 99,
+      "correct": true
+    },
+    {
+      "claim": "Albert Einstein failed mathematics in school",
+      "expected": "FALSE",
+      "actual": "FALSE",
+      "confidence": 96,
+      "correct": true
+    },
+    {
+      "claim": "The Great Wall of China is visible from space",
+      "expected": "FALSE",
+      "actual": "FALSE",
+      "confidence": 96,
+      "correct": true
+    },
+    {
+      "claim": "Napoleon Bonaparte was extremely short",
+      "expected": "FALSE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "Goldfish have a 3 second memory",
+      "expected": "FALSE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "Lightning never strikes the same place twice",
+      "expected": "FALSE",
+      "actual": "FALSE",
+      "confidence": 98,
+      "correct": true
+    },
+    {
+      "claim": "Humans only use 10 percent of their brain",
+      "expected": "FALSE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "The capital of India is Mumbai",
+      "expected": "FALSE",
+      "actual": "FALSE",
+      "confidence": 99,
+      "correct": true
+    },
+    {
+      "claim": "The Eiffel Tower is located in London",
+      "expected": "FALSE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "The square root of 144 is 14",
+      "expected": "FALSE",
+      "actual": "FALSE",
+      "confidence": 99,
+      "correct": true
+    },
+    {
+      "claim": "Diamonds are made of gold",
+      "expected": "FALSE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "The sun is a planet",
+      "expected": "FALSE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "Bats are completely blind",
+      "expected": "FALSE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "Humans and dinosaurs lived at the same time",
+      "expected": "FALSE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "The capital of Brazil is Rio de Janeiro",
+      "expected": "FALSE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "Sound travels faster than light",
+      "expected": "FALSE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "The Earth is flat",
+      "expected": "FALSE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "The Amazon River is the longest river in the world",
+      "expected": "FALSE",
+      "actual": "UNCERTAIN",
+      "confidence": 81,
+      "correct": false
+    },
+    {
+      "claim": "The currency of Japan is the Yuan",
+      "expected": "FALSE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    },
+    {
+      "claim": "The first iPhone was released in 2010",
+      "expected": "FALSE",
+      "actual": "UNCERTAIN",
+      "confidence": 70,
+      "correct": false
+    }
+  ]
+}

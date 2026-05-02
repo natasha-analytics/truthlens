@@ -10,30 +10,23 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-async def call_claude(prompt: str) -> str:
-    """Call Claude API."""
-    headers = {"Content-Type": "application/json"}
-    api_key = os.getenv("ANTHROPIC_API_KEY")
-    if api_key:
-        headers["x-api-key"] = api_key
-        headers["anthropic-version"] = "2023-06-01"
+import google.generativeai as genai
 
-    async with httpx.AsyncClient() as client:
-        response = await client.post(
-            "https://api.anthropic.com/v1/messages",
-            headers=headers,
-            json={
-                "model": "claude-sonnet-4-20250514",
-                "max_tokens": 500,
-                "messages": [{"role": "user", "content": prompt}],
-            },
-            timeout=60.0,
-        )
-        response.raise_for_status()
-        data = response.json()
-        if "content" in data and len(data["content"]) > 0:
-            return data["content"][0]["text"]
+async def call_claude(prompt: str) -> str:
+    """Call Gemini API."""
+    try:
+        api_key = os.getenv("GEMINI_API_KEY", "")
+        if not api_key:
+            print("ERROR: GEMINI_API_KEY not found")
+            return ""
+        genai.configure(api_key=api_key)
+        model = genai.GenerativeModel("gemini-1.5-flash")
+        response = model.generate_content(prompt)
+        return response.text
+    except Exception as e:
+        print(f"Gemini error: {e}")
         return ""
+
 
 
 async def answer_question(question: str) -> str:

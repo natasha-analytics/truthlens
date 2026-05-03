@@ -1,5 +1,5 @@
 const PANEL_ID = "truthlens-side-panel";
-const API_URL = "http://localhost:8000/api/analyze";
+const API_URL = "https://truthlens-api-z46t.onrender.com/api/analyze";
 
 function escapeHtml(value = "") {
   return value

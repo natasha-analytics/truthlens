@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8000/api/analyze";
+const API_URL = "https://truthlens-api-z46t.onrender.com"
 
 function escapeHtml(value = "") {
   return value

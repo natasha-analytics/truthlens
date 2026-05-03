@@ -160,7 +160,7 @@ export default function App() {
 
   const fetchStats = async () => {
     try {
-      const res = await axios.get("/api/stats");
+      const res = await axios.get("https://truthlens-api-z46t.onrender.comhttps://truthlens-api-z46t.onrender.com/api/stats");
       setStats(res.data);
     } catch {
       setStats(null);
@@ -169,7 +169,7 @@ export default function App() {
 
   const fetchHistory = async () => {
     try {
-      const res = await axios.get("/api/history");
+      const res = await axios.get("https://truthlens-api-z46t.onrender.comhttps://truthlens-api-z46t.onrender.com/api/history");
       setHistory(res.data.items || []);
     } catch {
       setHistory([]);
@@ -198,7 +198,7 @@ export default function App() {
     setResults(null);
     try {
       const res = await axios.post(
-        "/api/analyze",
+        "https://truthlens-api-z46t.onrender.comhttps://truthlens-api-z46t.onrender.com/api/analyze",
         {
           text: text,
           ai_source: aiSource,

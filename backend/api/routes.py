@@ -413,3 +413,105 @@ def get_hallucination_stats(db: Session = Depends(get_db)) -> dict:
             for stat in stats
         ]
     }
+BENCHMARK_QUESTIONS = [
+    "What is the capital of Australia?",
+    "Who invented the telephone?",
+    "In what year did World War 2 end?",
+    "How many bones are in the human body?",
+    "Who wrote Romeo and Juliet?",
+    "What is the largest planet in our solar system?",
+    "In what year did India gain independence?",
+    "Who painted the Mona Lisa?",
+    "What is the capital of Brazil?",
+    "Did Albert Einstein fail mathematics in school?",
+]
+
+
+@router.get("/llm-benchmark")
+async def llm_benchmark() -> dict:
+    """Ask Gemini preset questions and check answers for hallucinations using Wikipedia."""
+    try:
+        import google.generativeai as genai
+        api_key = os.getenv("GEMINI_API_KEY", "")
+        if not api_key:
+            raise HTTPException(status_code=500, detail="GEMINI_API_KEY not set")
+
+        genai.configure(api_key=api_key)
+        model = genai.GenerativeModel("gemini-1.5-flash")
+
+        all_results = []
+        total_hallucinated = 0
+        total_checked = 0
+
+        for question in BENCHMARK_QUESTIONS:
+            try:
+                response = model.generate_content(
+                    f"Answer this question in 2-3 sentences only with specific facts: {question}"
+                )
+                gemini_answer = response.text.strip()
+
+                claims = await extract_claims(gemini_answer)
+                claims = [c.strip() for c in claims if c and c.strip()]
+
+                if not claims:
+                    continue
+
+                results = await fact_check_all_claims(claims)
+
+                hallucinated = [r for r in results if r.get("verdict") == "FALSE"]
+                checkable = [r for r in results if r.get("verdict") in ["TRUE", "FALSE", "UNCERTAIN"]]
+
+                total_hallucinated += len(hallucinated)
+                total_checked += len(checkable)
+
+                q_rate = round(len(hallucinated) / len(checkable) * 100, 1) if checkable else 0
+
+                all_results.append({
+                    "question": question,
+                    "gemini_answer": gemini_answer,
+                    "total_claims": len(checkable),
+                    "hallucinated": len(hallucinated),
+                    "hallucination_rate": q_rate,
+                    "verdict": "❌ HALLUCINATED" if q_rate > 0 else "✅ ACCURATE",
+                    "claims": [
+                        {
+                            "claim": r.get("claim", claims[i] if i < len(claims) else ""),
+                            "verdict": r.get("verdict", "UNCERTAIN"),
+                            "explanation": r.get("explanation", ""),
+                            "correct_info": r.get("correct_info", ""),
+                        }
+                        for i, r in enumerate(results)
+                    ],
+                })
+
+            except Exception as q_error:
+                print(f"Question error: {q_error}")
+                continue
+
+        overall_rate = round(total_hallucinated / total_checked * 100, 1) if total_checked else 0
+
+        if overall_rate == 0:
+            reliability = "5/5 ⭐⭐⭐⭐⭐"
+        elif overall_rate <= 10:
+            reliability = "4/5 ⭐⭐⭐⭐"
+        elif overall_rate <= 25:
+            reliability = "3/5 ⭐⭐⭐"
+        elif overall_rate <= 50:
+            reliability = "2/5 ⭐⭐"
+        else:
+            reliability = "1/5 ⭐"
+
+        return {
+            "llm": "Gemini 1.5 Flash",
+            "total_questions": len(all_results),
+            "total_claims_checked": total_checked,
+            "total_hallucinated": total_hallucinated,
+            "overall_hallucination_rate": overall_rate,
+            "reliability_score": reliability,
+            "results": all_results,
+        }
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Benchmark failed: {str(e)}")

@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "description": "Fact-check any text instantly with AI",
   "permissions": ["contextMenus", "activeTab", "storage", "scripting"],
-  "host_permissions": ["http://localhost:8000/*"],
+  "host_permissions": [
+  "http://localhost:8000/*",
+  "https://truthlens-api-z46t.onrender.com/*"
+],
   "background": { "service_worker": "background.js" },
   "content_scripts": [
     {
